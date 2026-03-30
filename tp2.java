@@ -207,73 +207,7 @@ class Program
         emp.AfficherEmploye();
     }
 }
-//public class Article
-{
-    private string reference;
-    private string designation;
-    private double prixHT;
-    private static double tauxTVA = 20; // attribut partagé (static)
 
-    public string Reference   { get { return reference; }   set { reference = value; } }
-    public string Designation { get { return designation; } set { designation = value; } }
-    public double PrixHT      { get { return prixHT; }      set { prixHT = value; } }
-    public static double TauxTVA { get { return tauxTVA; }  set { tauxTVA = value; } }
-
-    // Constructeur par défaut
-    public Article() { }
-
-    // Constructeur complet
-    public Article(string ref_, string desig, double prix)
-    {
-        reference = ref_;
-        designation = desig;
-        prixHT = prix;
-    }
-
-    // Constructeur référence + désignation
-    public Article(string ref_, string desig)
-    {
-        reference = ref_;
-        designation = desig;
-    }
-
-    // Constructeur de recopie
-    public Article(Article a)
-    {
-        reference = a.reference;
-        designation = a.designation;
-        prixHT = a.prixHT;
-    }
-
-    public double CalculerPrixTTC() => prixHT + (prixHT * tauxTVA / 100);
-
-    public void AfficherArticle()
-    {
-        Console.WriteLine($"Référence : {reference} | Désignation : {designation} | Prix HT : {prixHT} | TVA : {tauxTVA}% | Prix TTC : {CalculerPrixTTC()}");
-    }
-}
-
-// Programme de test
-class Program
-{
-    static void Main()
-    {
-        Article a1 = new Article("A001", "Clavier", 150);
-        Article a2 = new Article("A002", "Souris");
-        a2.PrixHT = 80;
-        Article a3 = new Article(a1); // recopie
-
-        a1.AfficherArticle();
-        a2.AfficherArticle();
-        a3.AfficherArticle();
-
-        // Modification du taux TVA commun
-        Article.TauxTVA = 14;
-        Console.WriteLine("\nAprès changement du taux TVA à 14% :");
-        a1.AfficherArticle();
-        a2.AfficherArticle();
-    }
-}
 
 //exo4
 public class Article
